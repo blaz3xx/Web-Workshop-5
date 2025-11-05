@@ -27,12 +27,12 @@ html, body {
 .main-layout {
     display: flex;
     flex-grow: 1; 
-    gap: 14px;
+    gap: 15px;
 }
 
 .content-columns {
     flex-basis: calc(100% * 3.2 / 4.2);
-    flex-shrink: 0;
+    flex-shrink: 1;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -49,7 +49,6 @@ html, body {
     gap: 8px;
 }
 
-/* Prevent flex children from overflowing and overlapping siblings */
 .content-columns,
 .column-left,
 .column-center,
@@ -100,9 +99,9 @@ html, body {
 
 .block2 {
     flex-basis: calc(100% * 1 / 4.2);
-    flex-shrink: 0;
+    flex-shrink: 1;
     background-color: #e3efd9;
-    flex-grow: 1;
+    flex-grow: 0;
 		
 }
 
@@ -141,7 +140,6 @@ html, body {
     border: 1px solid #ddd;
 }
 
-/* Contain floats so they don't visually overlap adjacent blocks */
 .block5 .content::after {
     content: "";
     display: block;
@@ -273,7 +271,6 @@ html, body {
     background: #f4faff;
 }
 
-/* Rectangle area controls */
 .rect-area-controls {
     margin-top: 10px;
     padding-top: 8px;
@@ -292,7 +289,6 @@ html, body {
     padding: .35rem .5rem;
 }
 
-/* Button removed for auto-calc; keep rule empty or delete */
 
 .footer-inner {
     width: 100%;
@@ -309,22 +305,19 @@ html, body {
     .container {
         gap: 6px;
         padding: 6px;
-        min-width: 0; /* allow narrower viewports without overflow */
+        min-width: 0;
     }
 
     .block {
         padding: 10px;
     }
 
-    /* Prevent sidebar from hiding at mid widths */
     .main-layout { flex-wrap: wrap; }
     .content-columns,
     .block2 { flex-shrink: 1; min-width: 0; }
 }
 
-/* Mobile adaptations */
 @media (max-width: 900px) {
-    /* Allow layout to shrink on smaller screens */
     .container {
         min-width: 0;
     }
@@ -383,7 +376,6 @@ html, body {
     }
 }
 
-/* Minimum numbers (10) form styling */
 .min-form-controls {
     margin-top: 14px;
     padding-top: 10px;
@@ -430,19 +422,16 @@ html, body {
     .block6 img { height: 56px; }
 }
 
-/* Keep sidebar on the right (no wrapping), even at smaller widths */
 @media (max-width: 1300px) {
     .main-layout { flex-wrap: nowrap; }
 }
 
-/* Sidebar-right layout for small viewports: main shrinks, sidebar fixed width */
 @media (max-width: 900px) {
     .main-layout { flex-direction: row; overflow-x: auto; }
     .content-columns { flex: 1 1 auto; min-width: 0; }
     .block2 { flex: 0 0 240px; }
 }
 
-/* Phones: stack sidebar under main content */
 @media (max-width: 600px) {
     .main-layout { flex-direction: column; overflow-x: visible; }
     .row-2-3-content { flex-direction: column; }
@@ -450,7 +439,6 @@ html, body {
     .block2 { flex-basis: auto; width: 100%; }
 }
 
-/* Text style controls */
 .text-style-controls {
     margin-top: 14px;
     padding-top: 10px;
@@ -462,13 +450,11 @@ html, body {
     color: #555;
 }
 
-/* Apply italic to all text in block 3 when toggled */
 .block3.italic-on,
 .block3.italic-on * {
     font-style: italic;
 }
 
-/* CSS rules editor */
 .css-rules-controls {
     margin-top: 14px;
     padding-top: 10px;

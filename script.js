@@ -16,12 +16,12 @@ function renderRectangleArea() {
   if (!el) {
     el = document.createElement('p');
     el.id = 'rect-area-result';
-    container.appendChild(el); // append at the end of the content in block 5
+    container.appendChild(el);
   }
   el.textContent = area === null ? 'Rectangle area: n/a' : `Rectangle area: ${area}`;
 }
 
-// ---- Cookie utilities ----
+
 function setCookie(name, value, days = 7) {
   const d = new Date();
   d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
@@ -44,7 +44,7 @@ function deleteCookie(name) {
   document.cookie = `${encodeURIComponent(name)}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
 }
 
-// ---- Min numbers (10 values) helpers ----
+
 function computeMinCount(values) {
   const nums = values.map(Number);
   if (nums.length !== 10 || nums.some(n => !Number.isFinite(n))) return null;
@@ -82,22 +82,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const aNext = a.nextSibling;
     const bNext = b.nextSibling;
 
-    // Move a after original b
     bParent.insertBefore(a, bNext);
-    // Move b after original a position
     aParent.insertBefore(b, aNext);
   }
 
   btn?.addEventListener('click', () => {
     const x = getX();
     const y = getY();
+    if (!x || !y) return;
     swapNodes(x, y);
+    x.classList.remove('blockX');
+    x.classList.add('blockY');
+    y.classList.remove('blockY');
+    y.classList.add('blockX');
   });
 
-  // Render the rectangle area at the end of block 5 content
   renderRectangleArea();
 
-  // Prefill and wire inputs if present
   if (widthInput && heightInput) {
     if (typeof rectWidth !== 'undefined') widthInput.value = String(rectWidth);
     if (typeof rectHeight !== 'undefined') heightInput.value = String(rectHeight);
@@ -112,10 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     widthInput.addEventListener('input', update);
     heightInput.addEventListener('input', update);
-    // No calculate button; update automatically as user types
   }
 
-  // Min form: submit handler to compute and store in cookies
   if (minForm) {
     minForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -137,7 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // On load: if cookie exists, hide form and ask user whether to keep it
   try {
     const cookieRaw = getCookie('minNumsData');
     if (cookieRaw) {
@@ -160,7 +158,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   } catch {}
 
-  // Restore italic preference from localStorage
   try {
     const savedItalic = localStorage.getItem('block3Italic');
     const isItalic = savedItalic === 'true';
@@ -168,7 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (italicCheckbox) italicCheckbox.checked = isItalic;
   } catch {}
 
-  // On key events, set italic based on checkbox and save state
   const applyItalicFromCheckbox = () => {
     if (!block3) return;
     const enable = !!(italicCheckbox && italicCheckbox.checked);
@@ -176,19 +172,16 @@ document.addEventListener('DOMContentLoaded', () => {
     try { localStorage.setItem('block3Italic', String(enable)); } catch {}
   };
 
-  // Per requirement: react on keypress; also listen to keydown for broader support
   document.addEventListener('keypress', applyItalicFromCheckbox);
   document.addEventListener('keydown', applyItalicFromCheckbox);
 
-  // Apply immediately when the checkbox is toggled
   if (italicCheckbox) {
     italicCheckbox.addEventListener('change', applyItalicFromCheckbox);
     italicCheckbox.addEventListener('click', applyItalicFromCheckbox);
     italicCheckbox.addEventListener('input', applyItalicFromCheckbox);
   }
 
-  // ----- Dynamic CSS rules (Blocks 1..6) -----
-  // Inject a <style> tag to host dynamic rules
+  
   let dynamicStyleEl = document.getElementById('dynamicUserStyles');
   if (!dynamicStyleEl) {
     dynamicStyleEl = document.createElement('style');
@@ -244,7 +237,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Show/hide the CSS form on double-click of Block Y
   if (blockY && cssForm) {
     blockY.addEventListener('dblclick', () => {
       const isHidden = cssForm.hasAttribute('hidden');
@@ -253,7 +245,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Add new property row
   if (addPropRowBtn && cssPropsContainer) {
     addPropRowBtn.addEventListener('click', () => {
       const row = document.createElement('div');
@@ -272,7 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Save and apply rule
   if (saveCssRuleBtn) {
     saveCssRuleBtn.addEventListener('click', () => {
       const blockNum = cssBlockSelect ? cssBlockSelect.value : '5';
@@ -302,7 +292,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Initial render of saved rules
   const initialRules = loadCssRules();
   renderDynamicStyles(initialRules);
   renderRulesList(initialRules);
