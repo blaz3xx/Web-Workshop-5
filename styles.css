@@ -1,0 +1,517 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100vh;
+    font-size: clamp(16px, 1.5vw, 20px);
+    overflow: auto;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif;
+    color: #222;
+    background: #fafafa;
+    line-height: 1.6;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 1250px;
+    width: 100%;
+    gap: 8px;
+    padding: 8px;
+}
+
+.main-layout {
+    display: flex;
+    flex-grow: 1; 
+    gap: 14px;
+}
+
+.content-columns {
+    flex-basis: calc(100% * 3.2 / 4.2);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.row-1-block1 {
+    display: flex;
+    gap: 8px;
+}
+
+.row-2-3-content {
+    display: flex;
+    flex-grow: 1;
+    gap: 8px;
+}
+
+/* Prevent flex children from overflowing and overlapping siblings */
+.content-columns,
+.column-left,
+.column-center,
+.block2 {
+    min-width: 0;
+}
+
+.column-left {
+    flex-basis: calc(100% * 1.2 / 3.2);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.column-center {
+    flex-basis: calc(100% * 2 / 3.2);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #bdbdbd;
+    background: white;
+    position: relative;
+    overflow: visible;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    min-height: 100px;
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.block1 {
+    flex-grow: 1;
+    background-color: #c9ddf2;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding-left: 16px;
+}
+
+.block2 {
+    flex-basis: calc(100% * 1 / 4.2);
+    flex-shrink: 0;
+    background-color: #e3efd9;
+    flex-grow: 1;
+		
+}
+
+.block3 {
+    background-color: #fbe3d1;
+    align-items: flex-start;
+    flex-grow: 1;
+}
+
+.block4 {
+    background-color: #fbe3d1;
+    align-items: flex-start;
+		
+}
+
+.block4 h2 {
+    font-size: clamp(18px, 2vw, 24px);
+    margin: .25rem 0 .5rem;
+    text-align: center;
+		
+}
+
+.block5 {
+    display: block;
+    background-color: #ffffff;
+    align-items: flex-start;
+    flex-grow: 1;
+}
+
+.block5 img {
+    float: right;
+    margin: 0 0 6px 12px;
+    height: 200px;
+    width: auto;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Contain floats so they don't visually overlap adjacent blocks */
+.block5 .content::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.block5 img.lower {
+    clear: right;
+}
+
+.block5 h2 {
+    text-align: center;
+}
+
+.block6 {
+    flex-grow: 0;
+    background-color: #c9ddf2;
+    min-height: 180px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+}
+
+.block1 img {
+    height: 120px;
+    width: auto;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.block6 img {
+    height: 70px;
+    width: auto;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 8px;
+}
+
+.blockX, .blockY {
+    padding: 0 1em;
+    margin: 1em;
+    width: fit-content;
+    align-content: center;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.blockY {
+    margin-left: auto;
+}
+
+.blockX {
+    margin-right: auto;
+}
+
+.content {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.content h2 {
+    font-size: clamp(20px, 2vw, 26px);
+    margin: .25rem 0 .5rem;
+}
+
+.content p {
+    margin: .4rem 0;
+}
+
+.content ul {
+    margin-left: 2.5rem;
+}
+
+.content ol {
+    margin-left: 2.5rem;
+}
+
+.content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.menu {
+    width: 100%;
+}
+
+.menu h3 {
+    font-size: 20px;
+    margin-bottom: .5rem;
+    text-align: center;
+}
+
+.menu h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: .5rem;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+}
+
+.menu a {
+    display: block;
+    text-decoration: none;
+    color: #1f2937;
+    background: #fff;
+    padding: .5rem .75rem;
+    border: 1px solid #cfd8dc;
+    border-radius: 8px;
+}
+
+.menu a:hover,
+.menu a[aria-current="page"] {
+    border-color: #90caf9;
+    color: #0d47a1;
+    background: #f4faff;
+}
+
+/* Rectangle area controls */
+.rect-area-controls {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px dashed #cfd8dc;
+}
+
+.rect-area-controls .fields {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.rect-area-controls input[type="number"] {
+    width: 140px;
+    padding: .35rem .5rem;
+}
+
+/* Button removed for auto-calc; keep rule empty or delete */
+
+.footer-inner {
+    width: 100%;
+    max-width: 1100px;
+    text-align: flex-start;
+    font-size: .95em;
+}
+
+.footer-inner a {
+    color: #0d47a1;
+}
+
+@media (max-width: 1300px) {
+    .container {
+        gap: 6px;
+        padding: 6px;
+        min-width: 0; /* allow narrower viewports without overflow */
+    }
+
+    .block {
+        padding: 10px;
+    }
+
+    /* Prevent sidebar from hiding at mid widths */
+    .main-layout { flex-wrap: wrap; }
+    .content-columns,
+    .block2 { flex-shrink: 1; min-width: 0; }
+}
+
+/* Mobile adaptations */
+@media (max-width: 900px) {
+    /* Allow layout to shrink on smaller screens */
+    .container {
+        min-width: 0;
+    }
+
+    .main-layout {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .row-2-3-content {
+        flex-direction: column;
+    }
+
+    .content-columns,
+    .column-left,
+    .column-center,
+    .block2 {
+        flex-basis: 100%;
+        flex-shrink: 1;
+    }
+
+    .block1,
+    .block6 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .block1 img { height: 90px; }
+    .block6 img { height: 60px; }
+
+    .block5 img {
+        float: none;
+        width: 100%;
+        height: auto;
+        margin: 8px 0;
+    }
+
+    .photos {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    .content {
+        max-width: 100%;
+        padding: 0 8px;
+    }
+
+    .blockX, .blockY {
+        margin: .5em auto;
+    }
+
+    .menu h2 { font-size: 24px; }
+
+    .rect-area-controls .fields {
+        gap: 8px;
+    }
+}
+
+/* Minimum numbers (10) form styling */
+.min-form-controls {
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px dashed #cfd8dc;
+}
+
+.min-form-controls .fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.min-form-controls input[type="number"] {
+    padding: .35rem .5rem;
+}
+
+.min-form-controls button {
+    padding: .45rem .8rem;
+}
+
+@media (max-width: 900px) {
+    .min-form-controls .fields {
+        grid-template-columns: repeat(2, minmax(120px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    html, body {
+        font-size: clamp(15px, 3.5vw, 17px);
+    }
+
+    .photos {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 6px;
+    }
+
+    .menu a {
+        padding: .6rem .75rem;
+        font-size: .95em;
+    }
+
+    .block1 img { height: 80px; }
+    .block6 img { height: 56px; }
+}
+
+/* Keep sidebar on the right (no wrapping), even at smaller widths */
+@media (max-width: 1300px) {
+    .main-layout { flex-wrap: nowrap; }
+}
+
+/* Sidebar-right layout for small viewports: main shrinks, sidebar fixed width */
+@media (max-width: 900px) {
+    .main-layout { flex-direction: row; overflow-x: auto; }
+    .content-columns { flex: 1 1 auto; min-width: 0; }
+    .block2 { flex: 0 0 240px; }
+}
+
+/* Phones: stack sidebar under main content */
+@media (max-width: 600px) {
+    .main-layout { flex-direction: column; overflow-x: visible; }
+    .row-2-3-content { flex-direction: column; }
+    .content-columns, .block2 { flex: 1 1 auto; min-width: 0; }
+    .block2 { flex-basis: auto; width: 100%; }
+}
+
+/* Text style controls */
+.text-style-controls {
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px dashed #cfd8dc;
+}
+
+.text-style-controls .hint {
+    font-size: .9em;
+    color: #555;
+}
+
+/* Apply italic to all text in block 3 when toggled */
+.block3.italic-on,
+.block3.italic-on * {
+    font-style: italic;
+}
+
+/* CSS rules editor */
+.css-rules-controls {
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px dashed #cfd8dc;
+}
+
+.css-rules-controls .fields,
+.css-rules-controls .props,
+.css-rules-controls .actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.css-rules-controls .prop-row {
+    display: flex;
+    gap: 6px;
+}
+
+.css-rules-controls input[type="text"],
+.css-rules-controls select {
+    padding: .35rem .5rem;
+}
+
+.css-rules-list {
+    margin-top: 10px;
+}
+
+.css-rules-list .rule-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border: 1px solid #cfd8dc;
+    border-radius: 6px;
+    background: #fff;
+    margin-top: 6px;
+}
+
+.css-rules-list .rule-item code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: .9em;
+}

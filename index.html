@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>МУР — головна (Flexbox Layout)</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <div class="container">
+
+        
+        <div class="main-layout">
+            
+            <div class="content-columns">
+                
+                <div class="row-1-block1">
+                    <header class="block block1">
+                        <h2 class="blockX">Тобі мурую МУР Імперії</h2>
+                        <a href='https://www.instagram.com/myr_ukraine/'> <img src="pictures/mur logo1.jpg" alt="логотип МУР1"></a>
+                        <h2>МУР: Поезія в ритмі міста</h2>
+                        <a href='https://www.instagram.com/myr_ukraine/'> <img src="pictures/mur logo.jpg" alt="логотип МУР2"> </a>
+                    </header>
+                </div>
+                
+                <div class="row-2-3-content">
+                    
+                    <div class="column-left">
+                        <section class="block block3">
+                            <div class="content">
+                                <!-- Min numbers form (10 values) -->
+                                <div id="minFormContainer" class="min-form-controls" aria-labelledby="min-form-title">
+                                    <h3 id="min-form-title">Find Count of Minimum (10 numbers)</h3>
+                                    <form id="minNumbersForm">
+                                        <div class="fields grid10">
+                                            <input type="number" step="any" required name="n1" placeholder="1">
+                                            <input type="number" step="any" required name="n2" placeholder="2">
+                                            <input type="number" step="any" required name="n3" placeholder="3">
+                                            <input type="number" step="any" required name="n4" placeholder="4">
+                                            <input type="number" step="any" required name="n5" placeholder="5">
+                                            <input type="number" step="any" required name="n6" placeholder="6">
+                                            <input type="number" step="any" required name="n7" placeholder="7">
+                                            <input type="number" step="any" required name="n8" placeholder="8">
+                                            <input type="number" step="any" required name="n9" placeholder="9">
+                                            <input type="number" step="any" required name="n10" placeholder="10">
+                                        </div>
+                                        <button type="submit">Compute Min Count</button>
+                                    </form>
+                                </div>
+                                <h2 style='text-align: center;'>Графік виступів МУР 2025</h2>
+                                <ol>
+                                    <li>Київ - 20 вересня 2025</li>
+                                    <li>Львів - 27 вересня 2025</li>
+                                    <li>Харків - 4 жовтня 2025</li>
+                                    <li>Дніпро - 11 жовтня 2025</li>
+                                    <li>Одеса - 18 жовтня 2025</li>
+                                    <li>Вінниця - 25 жовтня 2025</li>
+                                    <li>Чернівці - 1 листопада 2025</li>
+                                    <li>Запоріжжя - 8 листопада 2025</li>
+                                    <li>Полтава - 15 листопада 2025</li>
+                                    <li>Івано-Франківськ - 22 листопада 2025</li>
+                                    <li>Тернопіль - 29 листопада 2025</li>
+                                    <li>Рівне - 6 грудня 2025</li>
+                                    <li>Луцьк - 13 грудня 2025</li>
+                                    <li>Київ - 20 грудня 2025</li>
+                                </ol>
+                            <div class="rect-area-controls" aria-labelledby="rect-area-title">
+                                <h3 id="rect-area-title">Rectangle Area</h3>
+                                <div class="fields">
+                                    <label>Width (units):
+                                        <input id="rectWidthInput" type="number" min="0" step="any">
+                                    </label>
+                                    <label>Height (units):
+                                        <input id="rectHeightInput" type="number" min="0" step="any">
+                                    </label>
+                                </div>
+                                <div class="text-style-controls" aria-labelledby="text-style-title">
+                                    <h3 id="text-style-title">Text Style</h3>
+                                    <label>
+                                        <input id="italicBlock3Checkbox" type="checkbox">
+                                        Italicize Block 3 on keypress
+                                    </label>
+                                    <p class="hint">Press any key to apply based on the checkbox.</p>
+                                </div>
+                            </div>
+                                <!-- CSS Rule Editor (hidden; appears on double-click of Block Y) -->
+                                <div id="cssRulesFormContainer" class="css-rules-controls" hidden aria-labelledby="css-rules-title">
+                                    <h3 id="css-rules-title">Add CSS Instructions</h3>
+                                    <div class="fields">
+                                        <label>Block:
+                                            <select id="cssBlockSelect">
+                                                <option value="1">Block 1</option>
+                                                <option value="2">Block 2</option>
+                                                <option value="3">Block 3</option>
+                                                <option value="4">Block 4</option>
+                                                <option value="5" selected>Block 5</option>
+                                                <option value="6">Block 6</option>
+                                            </select>
+                                        </label>
+                                        <label>Tag name:
+                                            <input id="cssTagInput" type="text" placeholder="e.g. p, h2, img">
+                                        </label>
+                                    </div>
+                                    <div id="cssPropsContainer" class="props">
+                                        <div class="prop-row">
+                                            <input class="prop-name" type="text" placeholder="property (e.g. color)">
+                                            <input class="prop-value" type="text" placeholder="value (e.g. red)">
+                                        </div>
+                                    </div>
+                                    <div class="actions">
+                                        <button id="addPropRowBtn" type="button">+ Add Property</button>
+                                        <button id="saveCssRuleBtn" type="button">Save & Apply</button>
+                                    </div>
+                                    <p class="hint">Double-click "Block Y" to toggle this panel.</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    
+                    <div class="column-center">
+                        <section class="block block4">
+                            <h2>«МУР для мене — це про відродження української культури та нації: у музиці, у слові, у спільному відчутті єдності.»</h2>
+                        </section>
+                        
+                        <section class="block block5" role="main">
+                            <img src="pictures/hurtmur.webp" alt="Фото гурту МУР">
+                            <div class="content">
+                                <h2>Основне про МУР</h2>
+                                <p>МУР — молодий український гурт, створений у 2022 році після початку повномасштабного вторгнення. 
+																До складу входять Микола Шмундір, Віктор Ткаченко та Олександр Хоменко. За два роки гурт встиг 
+																випустити два альбоми — <em>«MYR Vol.1»</em> та <em>«Захалявна книжка»</em>, засновані на текстах 
+																класиків української поезії.</p>
+
+																<p>У 2024 році МУР презентував історичний альбом <em>«Ти [Романтика]»</em>, присвячений авторам 
+																Розстріляного відродження. До нього увійшли 17 композицій, що послідовно відтворюють події 1918–1937 років. 
+																У записі взяли участь Сергій Жадан, гурт «Хейтспіч», Женя Янович, NAZVA, Олена Кравець, 
+																Женя Дубовик та Сергій Мартинюк.</p>
+
+																<p>Альбом порушує теми життя й долі Павла Тичини, Володимира Сосюри, Миколи Хвильового, 
+																Михайля Семенка, Леся Курбаса та багатьох інших. Основна мета — актуалізувати творчість 
+																поетів і письменників Розстріляного відродження для сучасного покоління та нагадати про 
+																циклічність історії.</p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            
+            <aside class="block block2">
+                <nav class="menu" aria-label="Головне меню">
+                    <h2>Меню</h2>
+                    <ul>
+                        <li><a href="index.html" aria-current="page">Головна</a></li>
+                        <li><a href="index_mobile.html">Вигляд сторінки для телефона</a></li>
+                        <li><a href="index_mail.html">Вигляд сторінки для пересилки mail</a></li>
+                    </ul>
+                    <div class="swap-controls">
+                        <button id="swapBtn" type="button">Swap X and Y</button>
+                    </div>
+                    <div id="cssRulesList" class="css-rules-list" aria-live="polite"></div>
+                </nav>
+            </aside>
+            
+        </div>
+        
+        <footer class="block block6">
+            <div class="footer-inner">
+                <div class="photos">
+                    <a href='https://www.tiktok.com/@myr_ukraine?lang=uk-UA'> <img src="pictures/tiktok.jpg" alt="логотип TikTok"> </a>
+                    <a href='https://open.spotify.com/artist/3NYo9EP6S3ReZ3ep86lsg3'> <img src="pictures/spotify.png" alt="логотип Spotify"> </a>
+                    <a href='https://concert.ua/uk/talent/mur'> <img src="pictures/concertua.jpg" alt="логотип Concertua"> </a>
+                    <a href='https://www.youtube.com/channel/UCj9c2ZnE4zVSjV3HfGIszgQ'> <img src="pictures/new-youtube-logo-2017-vector-for-free-download-115739248166e5taxeswn.png" alt="логотип Youtube"> </a>
+                    <a href='https://uk.wikipedia.org/wiki/%D0%9C%D0%A3%D0%A0_(%D0%B3%D1%83%D1%80%D1%82)'> <img src="pictures/Wikipedia-logo-v2.svg.png" alt="логотип Wikipedia"> </a>
+                </div>
+            </div>
+            <h2 class="blockY">Без пам'яті про минуле не існує майбутнього</h2>
+        </footer>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
